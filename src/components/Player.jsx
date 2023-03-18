@@ -4,9 +4,17 @@ import { useEffect, useRef } from 'react'
 import { Vector3 } from 'three'
 import { usekeyboard } from '../hooks/UseKeboard'
 
+const CHAERTER_SPEED = 5
+const CHARATECR_JUMP_FORCE = 10
+
 export function Player() {
-    const { actions } = usekeyboard()
-    console.log(actions)
+    const {
+        moveBackward,
+        moveForward,
+        moveLeft,
+        moveRaight,
+        jump
+    } = usekeyboard()
     const { camera } = useThree()
     const [ref, api] = useSphere(() => ({
         mass: 1,
@@ -37,10 +45,32 @@ export function Player() {
                 pos.current[2],
             )
         )
-        api.velocity.set(0, 0, -0.5)
+        const direction = new Vector3()
+        const fromVector = new Vector3(
+            0,
+            0,
+            (moveBackward ? 1 : 0) - (moveForward ? 1 : 0)
+        )
+        const sideVector = new Vector3(
+            (moveLeft ? 1 : 0) - (moveRaight ? 1 : 0),
+            0,
+            0,
+        )
+
+        direction
+            .subVectors(fromVector, sideVector)
+            .normalize()
+            .multiplyScalar(CHAERTER_SPEED)
+            .applyEuler(camera.rotation)
+
+        api.velocity.set(
+            direction.x,
+            vel.current[1],
+            direction.z
+        )
     })
 
     return (
-      <mesh ref={ref} />
+        <mesh ref={ref} />
     )
 }

@@ -59,5 +59,5 @@ export function usekeyboard() {
             document.removeEventListener('keyup', handleKeyUp)
         }
     })
-    return { actions }
+    return actions
 }
