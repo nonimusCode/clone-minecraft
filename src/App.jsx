@@ -7,15 +7,18 @@ import { Player } from './components/Player'
 
 function App() {
   return (
-    <Canvas>
-      <FVP />
-      <Sky sunPosition={[100, 100, 20]} />
-      <ambientLight intensity={0.5} />
-      <Physics>
-        <Player />
-        <Ground />
-      </Physics>
-    </Canvas>
+    <>
+      <Canvas>
+        <FVP />
+        <Sky sunPosition={[100, 100, 20]}  />
+        <ambientLight intensity={0.5} />
+        <Physics>
+          <Player />
+          <Ground />
+        </Physics>
+      </Canvas>
+      <div className='pointer'>+</div>
+    </> 
   )
 }
 

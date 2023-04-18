@@ -5,7 +5,7 @@ import { Vector3 } from 'three'
 import { usekeyboard } from '../hooks/UseKeboard'
 
 const CHAERTER_SPEED = 5
-const CHARATECR_JUMP_FORCE = 10
+const CHARATECR_JUMP_FORCE = 4
 
 export function Player() {
     const {
@@ -68,6 +68,13 @@ export function Player() {
             vel.current[1],
             direction.z
         )
+        if (jump) {
+            api.velocity.set(
+                vel.current[0],
+                CHARATECR_JUMP_FORCE,
+                vel.current[2]
+            )
+        }
     })
 
     return (
