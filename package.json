@@ -13,10 +13,12 @@
     "@react-three/drei": "9.40.0",
     "@react-three/fiber": "8.9.1",
     "i": "^0.3.7",
+    "nanoid": "5.0.4",
     "pnpm": "^7.29.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "three": "^0.150.1"
+    "three": "^0.150.1",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/react": "18.0.27",

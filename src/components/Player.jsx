@@ -68,7 +68,7 @@ export function Player() {
             vel.current[1],
             direction.z
         )
-        if (jump) {
+        if (jump && Math.abs(vel.current[1]) < 0.05) {
             api.velocity.set(
                 vel.current[0],
                 CHARATECR_JUMP_FORCE,
@@ -78,6 +78,6 @@ export function Player() {
     })
 
     return (
-        <mesh ref={ref} />
+      <mesh ref={ref} />
     )
 }
