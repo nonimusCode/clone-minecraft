@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { usekeyboard } from '../hooks/UseKeboard'
 import { useStore } from '../hooks/UseStore'
+import * as images from '../images/images'
 
 export function TextureSelected() {
-    const [setTexture] = useStore(state => [state.setTexture])
+    const [ setTexture, texture ] = useStore(state => [state.setTexture, state.texture])
 
     const {
         dirt,
@@ -23,8 +24,6 @@ export function TextureSelected() {
         }
         const selectedTexture = Object.entries(options).find(([texture, isEnable]) => isEnable)
 
-        console.log(selectedTexture)
-
         if (selectedTexture) {
             const [textureName] = selectedTexture
             setTexture(textureName)
@@ -32,5 +31,17 @@ export function TextureSelected() {
     },
         [dirt, grass, glass, log, wood])
 
-    return null
+    return (
+      <div className='select-items-bar'>
+        {Object.entries(images).map(([key, src]) => (
+          <div
+            key={key}
+            className={`item-slot ${texture === key ? 'selected' : ''}`}
+          >
+            <img key={key} src={src} alt={key} className='images-material' />
+
+          </div>
+            ))}
+      </div>
+    )
 }

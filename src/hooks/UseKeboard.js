@@ -5,12 +5,13 @@ const ACTIONS_KEYBOARD_MAP = {
     KeyS: 'moveBackward',
     KeyD: 'moveRaight',
     KeyA: 'moveLeft',
+    Escape: 'settings',
     Space: 'jump',
     Digit1: 'dirt',
-    Digit2: 'grass',
-    Digit3: 'glass',
-    Digit4: 'wood',
-    Digit5: 'log'
+    Digit2: 'glass',
+    Digit3: 'grass',
+    Digit4: 'log',
+    Digit5: 'wood'
 }
 
 export function usekeyboard() {
@@ -19,6 +20,7 @@ export function usekeyboard() {
         moveBackward: false,
         moveLeft: false,
         moveRaight: false,
+        settings: false,
         jump: false,
         dirt: false,
         grass: false,

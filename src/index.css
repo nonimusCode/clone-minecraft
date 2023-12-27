@@ -18,6 +18,88 @@ body,
   position: absolute;
   top: 50%;
   left: 50%;
-  color: black;
+  color: white;
   transform: translate(-50%, -50%);
+  box-shadow: white;
+}
+
+.select-items-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 3px solid black;
+  height: 60px;
+}
+
+.item-slot {
+  width: 100%;
+  height: 100%;
+  border: 4px solid #757d74;
+  box-sizing: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.images-material {
+  width: 100%;
+  height: 100%;
+}
+
+.item-slot.selected {
+  border: 4px solid #cb7538;
+  transform: scale(1.1);
+}
+
+.settings {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #6f6f6f;
+  height: 400px;
+  width: 400px;
+  z-index: 2;
+  gap: 20px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 20px;
+  font-size: 15px;
+  padding: 15px;
+  color: #4b4b4b;
+  background-color: #c6c6c8;
+  border: 3px solid #333333;
+  text-align: center;
+}
+
+.circle-button-cancel {
+  position: absolute;
+  background-color: #c6c6c8;
+  border-radius: 50%;
+  color: #4b4b4b;
+  padding: 20px;
+  top: 2%;
+  left: 85%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-button-cancel:hover {
+  cursor: pointer;
 }
